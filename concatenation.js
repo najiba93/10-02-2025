@@ -19,7 +19,7 @@ console.log(resultat02)// resultat02 est in string
 const lundi="lundi";
 const suiteDePhrase="est une journee"
 const magnifique="magnifique"
-const resultat_phrase= lundi + " " + suiteDePhrase + " " + magnifique
+
 
 console.log("le resultat de la phrase : ",resultat_phrase + " ")
 
