@@ -7,6 +7,7 @@ let tab1=new Array("elament0","element1")
 let tab2= Array("elament0","element1")
 
 let tab3=["elament0","element1"] // a prioriser plus clair 
+
 // ****************************declaration d'une liste (tableau)
 
 // tableau simple de nombre
@@ -35,11 +36,22 @@ console.log("mixte", mixte[4][2])
 console.log("mixte", mixte[3].nom)
 console.log("mixte", mixte[3]["nom"])
 
+
+//******** */
+//modification de loriginal d'un tableau
+
+
 //*******modifier un element du tableau */
 
 
 fruits[0]="fraise"
 console.log("fruit modifier",fruits)
+
+
+// trouver l'index d'un element du tableau
+fruits.indexOf("pomme")
+console.log(fruits.indexOf("pomme"))
+
 
 //***************ajouter un elements dans un tableau */
 
@@ -52,9 +64,44 @@ console.log(fruits)
 fruits.splice(1,0,"clementine")// ajoute en deuxiemnt
 console.log(fruits)
 
+let index=fruits.indexOf("pomme")
+fruits.splice(index , 1) // supprime pomme
+console.log("pomme supprimer",rsult)
+
+fruits.shift() // suprimer 1er element
+console.log("supprime 1er elements",fruits)
+
+
 //****************************supprimer des elements */
 fruits.pop()//supprime dernier elements
 console.log(fruits)
+
+// modification en creant un nouveau tableau
+
+// extrair une partie du tableau  sans modifier l'original
+
+let nouveauFruits=fruits.slice(1.0)
+console.log("new",nouveauFruits)
+
+
+
+animals.filter(
+    function(animal){
+    animal !== "ant"
+    }
+)
+console.log("new")
+
+
+const ages = [32,33,16,5,17,20,40]
+const resultat = ages.filter(
+    function checkAdult(parametre){
+        return parametre >= 18;
+    }
+);
+
+console.log("nouveau tableau de age", resultat)
+console.log("nouveau tableau de age", resultat)
 
 
 
