@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposition</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #444;
+            background: #333;
+            color: white;
+            border-radius: 4px;
+        }
+        button {
+            background: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #ff1493;
+        }
+        .alert {
+            background: #ff69b4;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .buttons {
+            display: none;
+            gap: 10px;
+            justify-content: center;
+        }
+        .yes {
+            background: #4CAF50;
+        }
+        .no {
+            background: #f44336;
+        }
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: gold;
+            position: absolute;
+            animation: fall 3s linear forwards;
+        }
+        .heart {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 300px;
+            color: #ff69b4;
+            display: none;
+            opacity: 0;
+            animation: pulse 3s infinite, fadeIn 5s forwards;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-group">
+            <label for="prenom">Quel est ton prénom ?</label>
+            <input type="text" id="prenom" required>
+            <button onclick="verifierPrenom()">Valider</button>
+        </div>
+        
+        <div class="alert" id="alert">
+            <h2 id="message-prenom"></h2>
+            <p>Veux-tu m'épouser ?</p>
+        </div>
+        <div class="buttons" id="buttons">
+            <button class="yes" onclick="repondreOui()">Oui</button>
+            <button class="no" onclick="repondreNon()">Non</button>
+        </div>
+    </div>
+    <div class="heart" id="heart">
+</div>
+    <script>
+        function verifierPrenom() {
+            const prenom = document.getElementById('prenom').value;
+            if (prenom.trim()) {
+                document.getElementById('message-prenom').textContent = prenom;
+                document.getElementById('alert').style.display = 'block';
+                document.getElementById('buttons').style.display = 'flex';
+                document.querySelector('.form-group').style.display = 'none';
+            }
+        }
+        function repondreOui() {
+            document.getElementById('buttons').style.display = 'none';
+            document.getElementById('heart').style.display = 'block';
+            creerConfettis();
+        }
+        function repondreNon() {
+            document.getElementById('buttons').style.display = 'none';
+            document.getElementById('alert').textContent = 'Oh... 
+';
+        }
+        function creerConfettis() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(confetti);
+                
+                // Supprimer les confettis après l'animation
+                confetti.addEventListener('animationend', () => {
+                    confetti.remove();
+                });
+            }
+        }
+    </script>
+</body>
+</html>

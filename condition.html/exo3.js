@@ -78,7 +78,7 @@ console.log(tab5)
 // creer un tableau utilisateur contenant des sous tableaux [nom, rele,email] comme ceci
 
 
-let utilisateurs = [
+let utilisateurs= [
     ["Jean Dupont", "jean.dupont@email.com", "admin"],
     ["Marie Lemoine", "marie.lemoine@email.com", "utilisateur"],
     ["Pierre Durand", "pierre.durand@email.com", "modérateur"]
@@ -118,3 +118,26 @@ console.log("user",utilisateurs)
     }
     console.log(trouverutilisateur("charLie@example.com"))*/
 
+
+
+
+    let utilisateurs = [
+
+    ]
+    console.log(utilisateurs)
+    function ajouterUnUser(nom,
+    
+    function afficherUserUnUser(){
+        for (let i=0;i< utilisateurs.length;i++){
+            console.log( `nom ${utilisateurs[i][0]} , mail${utilisateurs[i][1]},${utilisateurs[i][2]}`)
+            console.log ( "concatenation : nom :" +utilisateurs[i][0] + " mail :" + utilisateurs[i][1] + "rol :" + utilisateurs[i][2])
+
+        }
+    }
+    afficherUser()
+
+    supprimeruser("alice dupont")
+    function supprimeruser(nom){
+        let index=utilisateurs[0].index(nom) // si nom exitste 
+    }
+    

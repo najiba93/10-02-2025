@@ -189,3 +189,6 @@ console.log(pairOuImoair(3))
 console.log(pairOuImoair(43))
 
 
+
+
+

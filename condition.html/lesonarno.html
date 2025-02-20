@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste de Fruits</title>
+</head>
+<body>
+    <ul id="listeFruits"></ul> <!-- Créer un élément ul dans le HTML -->
+   
+    <script>
+        // Créer un tableau contenant plusieurs noms de fruits
+        const fruits = ["Pomme", "Banane", "Cerise", "Mangue", "Orange"];
+ 
+        // Faire un console log de fruits et de fruits[i] pour montrer la différence
+        console.log("Tableau de fruits:", fruits);
+        for (let i = 0; i < fruits.length; i++) {
+            console.log(`Fruit ${i}:`, fruits[i]);
+        }
+ 
+        // Sélectionner le conteneur <ul> où les éléments <li> seront ajoutés
+        const ul = document.getElementById("listeFruits");
+ 
+        // Faire une boucle for sur le tableau et ajouter des éléments <li> pour chaque fruit
+        for (let i = 0; i < fruits.length; i++) {
+            // Créer un élément <li>
+            const li = document.createElement("li");
+            // Ajouter le texte du fruit à l'élément <li>
+            li.textContent = fruits[i];
+            // Ajouter un événement de clic à l'élément <li>
+            li.addEventListener("click", function() {
+                ul.removeChild(li); // Supprimer le fruit cliqué de la liste
+            });
+            // Ajouter l'élément <li> à l'élément <ul>
+            ul.appendChild(li);
+        }
+    </script>
+</body>
+</html>
+ 
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .button {
+            width: 100px;
+            height: 30px;
+            margin-left: 30px;
+            background-color: blue;
+
+
+        }
+
+        #name {
+            width: 200px;
+            margin-left: 200px;
+        }
+    </style>
+
+    <div>
+        <input type="text" id="input" name="name" />
+
+        <button id="button">ajout</button>
+
+    </div>
+
+<ul id="ul"></ul>
+
+<ul class="fruits"></ul>
+
+
+    <script>
+        const input = document.getElementById("input")
+        const button = document.getElementById("button")
+        // faire un event au click sur le button et afficher valeur de l'input dans la consol
+        
+        
+        
+        const valeur=input.value 
+    button.addEventListener("click", function(){
+
+        console.log("valeur:",input.value)
+       
+    })
+/*****************   une autre facon a faire****************/
+/*
+ button.addEventListener("click",function(){
+    let valeur=input.valeur 
+ if(valeur === ""){
+    alert("rentrait votre nom")
+
+
+    
+    
+   
+}else{
+    console.log(valeur)
+    tableau.push(valeur)
+    console.log("tabl:",tableau)
+}
+    for(let i=0;i<tableau.length;i++){
+
+
+        const li=document.createElement("li")
+    li.textContent=utilisateurs[i]
+    ul.appendChild(li)
+   
+    
+})*/
+
+
+
+
+
+//exo
+ 
+button.addEventListener("click",function(){
+    console.log("valeur de input:", input.value)
+})
+//***********UNE AUTRE FACON A FAIRE****** */
+ 
+let tableau=[]
+ 
+let ul =document.getElementById("ul")
+ 
+button.addEventListener("click",function(){
+let valeur=input.value
+ 
+    if(valeur ===""){
+        alert("inscrir votre nom")
+    }else{
+    console.log("valeur input:" +valeur)
+    tableau.push(valeur)
+    console.log("tableau:",tableau)
+ 
+   
+    input.value=""
+}
+let li= document.createElement("li")
+for( let i=0;i<tableau.length;i++){
+    console.log("console",tableau[i])
+li.textContent=tableau[i]
+ul.appendChild(li)
+}
+})
+
+
+ 
+let fruitsul =document.getElementById("ul")
+
+const fruits = ["Pomme", "Banane", "Cerise", "Mangue", "Orange"]
+console.log("fruit",fruits)
+
+for( let i=0;i<fruits.length;i++){
+    console.log(`Fruit ${i}:`, fruits[i]);
+
+    let fruitsli= document.createElement("li")
+
+    fruitsul.textContent=fruits[i]
+    fruitsul.appendChild(li)
+}
+console.log("nombres ;", fruitsli)
+
+
+
+
+
+
+
+
+
+   
+
+    </script>
+
+
+
+</body>
+
+</html>

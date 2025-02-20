@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Style pour les éléments avec la classe 'maClasse' */
+        .maClasse {
+            color: blue;
+            font-size: 20px;
+            text-align: center;
+        }
+ 
+        /* Style pour la modale */
+        .modale {
+            display: none; /* Cacher la modale par défaut */
+            position: fixed;
+            z-index: 1; /* Assurer que la modale est au-dessus d'autres éléments */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Permettre le défilement si nécessaire */
+            background-color: rgba(0,0,0,0.4); /* Couleur de fond semi-transparente */
+        }
+ 
+        /* Style pour le contenu de la modale */
+        .modale-contenu {
+            background-color: #fefefe; /* Couleur de fond blanche */
+            margin: 15% auto; /* Centrer verticalement et horizontalement */
+            padding: 20px; /* Espacement intérieur */
+            border: 1px solid #888; /* Bordure grise */
+            width: 80%; /* Largeur du contenu de la modale */
+            height: 40%; /* Hauteur du contenu de la modale */
+        }
+ 
+        /* Style pour le bouton de fermeture de la modale */
+        .fermer {
+            color: #aaa; /* Couleur grise pour le bouton de fermeture */
+            float: right; /* Alignement à droite */
+            font-size: 28px; /* Taille de police */
+            font-weight: bold; /* Poids de police */
+        }
+ 
+        /* Style pour le bouton de fermeture au survol */
+        .fermer:hover,
+        .fermer:focus {
+            color: black; /* Changer la couleur au survol */
+            text-decoration: none; /* Pas de soulignement */
+            cursor: pointer; /* Curseur en forme de main */
+        }
+ 
+   
+ 
+        /* Style pour le bouton */
+        .btn {
+            position: fixed; /* Positionnement fixe par rapport à la fenêtre */
+            top: 10px; /* Placer en haut de la page */
+            left: 50%; /* Centrer horizontalement */
+            transform: translateX(-50%); /* Ajuster pour le centre exact */
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">Clique la</button> <!-- Bouton avec la classe 'btn' -->
+ 
+    <div id="modale" class="modale">
+        <div class="modale-contenu">
+            <span class="fermer" id="fermer">&times;</span> <!-- Bouton de fermeture de la modale -->
+            <p>Voici le contenu de la modale.</p> <!-- Contenu de la modale -->
+        </div>
+    </div>
+    <div id="text2"></div> <!-- Élément texte pour des manipulations futures -->
+ 
+    <script>
+        let clique = document.querySelector(".btn"); // Sélectionner le bouton avec la classe 'btn'
+        let modale = document.getElementById("modale"); // Sélectionner la modale par son ID
+        let fermer = document.getElementById("fermer"); // Sélectionner le bouton de fermeture par son ID
+ 
+        // Ajouter un écouteur d'événement pour détecter le double-clic sur le bouton
+        clique.addEventListener("dblclick", function() {
+            clique.style.color = "red"; // Changer la couleur du bouton en rouge
+            modale.style.display = "block"; // Afficher la modale
+        });
+ 
+        // Ajouter un écouteur d'événement pour détecter le clic sur le bouton de fermeture
+        fermer.addEventListener("click", function() {
+            modale.style.display = "none"; // Cacher la modale
+        });
+ 
+        // Ajouter un écouteur d'événement pour détecter le clic en dehors de la modale
+        window.addEventListener("click", function(event) {
+            if (event.target == modale) { // Vérifier si le clic est en dehors de la modale
+                modale.style.display = "none"; // Cacher la modale
+            }
+        });
+ 
+       
+    </script>
+</body>
+</html>

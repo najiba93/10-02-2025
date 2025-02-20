@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal {
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            display: none;
+
+        }
+
+        .btn {
+            height: 50px;
+            width: 100px;
+            cursor: pointer;
+        }
+
+        .fermeModal {
+            position: relative;
+            bottom: 200px;
+            left: 180px;
+            cursor: pointer;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <button class="btn">bonjour</button>
+    <div class="modal"></div>
+    <button class="fermeModal">&times;</button>
+
+
+
+
+    <script>
+        let btn = document.querySelector(".btn")
+        let modal = document.querySelector(".modal")
+        let fermeModal = document.querySelector(".fermeModal")
+
+
+
+
+        btn.addEventListener("click", function () {
+            btn.textContent = "ET"
+            modal.innerHTML = "aurevoir"
+            modal.style.display = "block"
+
+        })
+        btn.addEventListener("mouseover", function () {
+            btn.style.background = "red"
+            btn.style.borderRadius = "15px"
+        })
+        btn.addEventListener("mouseleave", function () {
+            btn.style.background = "blue"
+            btn.style.borderRadius = "15px"
+        })
+     
+        fermeModal.addEventListener("click", function () {
+            modal.style.display = "none"
+            btn.innerHTML = "à bientot"
+            btn.style.background = "blue"
+        })
+
+    </script>
+</body>
+
+</html>
